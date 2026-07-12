@@ -1,0 +1,6 @@
+aiohttp
+aiolimiter
+joblib
+pandas
+requests
+scikit-learn

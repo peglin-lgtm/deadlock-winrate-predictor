@@ -1,0 +1,25 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment variables
+.env
+docker/.env
+
+# IDE settings
+.idea/
+.vscode/
+
+# Local and intermediate files
+test.py
+data/matches_metadata.jsonl
+data/collected_match_ids.json
+gues.py
+guess.py
+
+# Logs
+*.log
