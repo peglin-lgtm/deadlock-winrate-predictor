@@ -6,7 +6,7 @@ The project started as a way to practice the full ML workflow: collecting data, 
 
 ## Prediction examples
 
-![Deadlock match prediction example 1](images/TdNatHrwg135w3O-V0AO4KDWrz6FIfcXkF1soxDifYMtw3zaY9cKneTOLVSKnW1u71rI47Ep3dp0tJX2Pc7otq-2.jpg)
+![Deadlock match prediction example 1](images/h9DvFRp5Upbf6JPv7lbbs3C6KRm9nnU4gJYULow-z2kbvt97zCMA1WIB-E84IfVNYjDFg1vVRgAZ8E5ciO7xKZ3V.jpg)
 
 ![Deadlock match prediction example 2](images/lFST0BOcTJa9j1BR0RPJe7rmysyATcCMVPuYGZynsAwbXNGbDEeUwJ7R-DL4LvNw7JozLUwJMbNERQm5iG4uzKZc.jpg)
 
