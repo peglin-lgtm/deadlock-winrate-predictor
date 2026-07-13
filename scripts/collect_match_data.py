@@ -1,12 +1,15 @@
 import asyncio
 import json
+from pathlib import Path
 
 import aiohttp
 from aiolimiter import AsyncLimiter
 
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = PROJECT_ROOT / "data"
 BASE_URL = "https://api.deadlock-api.com/v1/matches"
-OUTPUT_FILE = "data/matches_metadata.jsonl"
+OUTPUT_FILE = DATA_DIR / "matches_metadata.jsonl"
 
 
 class CloudflareBlockedError(Exception):
@@ -242,7 +245,7 @@ def load_matches(
 
 
 with open(
-    "data/collected_match_ids.json",
+    DATA_DIR / "collected_match_ids.json",
     "r",
     encoding="utf-8",
 ) as file:

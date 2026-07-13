@@ -1,7 +1,13 @@
 import json
+from pathlib import Path
+
 import requests
 import pandas as pd
 import joblib
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+MODELS_DIR = PROJECT_ROOT / "saved_models"
 
 
 def get_match_players(match_id: int) -> dict[int, list[dict]]:
@@ -112,7 +118,7 @@ team_features = {}
 
 
 # Replace this with the ID of the Deadlock match you want to predict.
-match_id = 93379629
+match_id = 93570173
 
 
 teams = get_match_players(match_id=match_id)
@@ -121,11 +127,11 @@ if any(len(players) != 6 for players in teams.values()):
     raise ValueError("Не удалось получить по 6 игроков в каждой команде")
 
 logistic_model = joblib.load(
-    "saved_models/deadlock_logistic_regression.joblib"
+    MODELS_DIR / "deadlock_logistic_regression.joblib"
 )
 
 random_forest_model = joblib.load(
-    "saved_models/deadlock_random_forest.joblib"
+    MODELS_DIR / "deadlock_random_forest.joblib"
 )
 
 

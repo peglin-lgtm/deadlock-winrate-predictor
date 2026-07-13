@@ -1,4 +1,6 @@
 import json
+from pathlib import Path
+
 import requests
 import pandas as pd
 import time
@@ -9,6 +11,8 @@ import aiohttp
 from aiolimiter import AsyncLimiter
 
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = PROJECT_ROOT / "data"
 pl_url = "https://api.deadlock-api.com/v1/players/hero-stats"
 
 
@@ -147,7 +151,7 @@ async def get_team_players_stats(
 match_count = 0
 rows = [] 
 count = 0
-filename = "data/matches_metadata.jsonl"
+filename = DATA_DIR / "matches_metadata.jsonl"
 
 with open(filename, "r", encoding="utf-8") as file:
     for line in file:
@@ -392,10 +396,10 @@ with open(filename, "r", encoding="utf-8") as file:
         df = pd.DataFrame([row])
 
         df.to_csv(
-            "data/deadlock_dataset.csv",
+            DATA_DIR / "deadlock_dataset.csv",
             mode="a",              
             index=False,
-            header=not os.path.exists("data/deadlock_dataset.csv")
+            header=not (DATA_DIR / "deadlock_dataset.csv").exists()
         )
 
         match_count += 1

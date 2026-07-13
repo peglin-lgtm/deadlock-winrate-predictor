@@ -1,7 +1,12 @@
 import json
+from pathlib import Path
+
 import requests
 import time
 
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = PROJECT_ROOT / "data"
 
 url = "https://api.deadlock-api.com/v1/matches/recently-fetched"
 pl_url = "https://api.deadlock-api.com/v1/players/hero-stats"
@@ -65,5 +70,5 @@ for i, match in enumerate(matches):
 
     print(len(all_match_ids))
 
-with open("data/collected_match_ids.json", "w", encoding="utf-8") as file:
+with open(DATA_DIR / "collected_match_ids.json", "w", encoding="utf-8") as file:
     json.dump(sorted(all_match_ids), file, ensure_ascii=False, indent=2)

@@ -1,6 +1,7 @@
 import pandas as pd
 import joblib
 import os
+from pathlib import Path
 
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
@@ -9,10 +10,13 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, roc_auc_score
 
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = PROJECT_ROOT / "data"
+MODELS_DIR = PROJECT_ROOT / "saved_models"
 
 pd.set_option("display.max_columns", None)
 
-df = pd.read_csv("data/deadlock_dataset.csv")
+df = pd.read_csv(DATA_DIR / "deadlock_dataset.csv")
 
 X = df.drop(columns="target")
 y = df["target"]
@@ -89,16 +93,16 @@ for model_name, model in models.items():
 
 
 
-os.makedirs("saved_models", exist_ok=True)
+os.makedirs(MODELS_DIR, exist_ok=True)
 
 joblib.dump(
     models["Logistic Regression"],
-    "saved_models/deadlock_logistic_regression.joblib"
+    MODELS_DIR / "deadlock_logistic_regression.joblib"
 )
 
 joblib.dump(
     models["Random Forest"],
-    "saved_models/deadlock_random_forest.joblib"
+    MODELS_DIR / "deadlock_random_forest.joblib"
 )
 
 print("Both models have been saved")

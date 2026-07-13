@@ -4,6 +4,12 @@ This is my first machine learning project. It tries to predict which team is mor
 
 The project started as a way to practice the full ML workflow: collecting data, preparing a dataset, selecting model parameters, training models, and finally using them on a real match.
 
+## Prediction examples
+
+![Deadlock match prediction example 1](images/TdNatHrwg135w3O-V0AO4KDWrz6FIfcXkF1soxDifYMtw3zaY9cKneTOLVSKnW1u71rI47Ep3dp0tJX2Pc7otq-2.jpg)
+
+![Deadlock match prediction example 2](images/lFST0BOcTJa9j1BR0RPJe7rmysyATcCMVPuYGZynsAwbXNGbDEeUwJ7R-DL4LvNw7JozLUwJMbNERQm5iG4uzKZc.jpg)
+
 ## Models
 
 The project includes two models:

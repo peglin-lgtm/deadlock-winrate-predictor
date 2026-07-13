@@ -1,4 +1,5 @@
 import pandas as pd
+from pathlib import Path
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
@@ -7,9 +8,11 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DATA_DIR = PROJECT_ROOT / "data"
 pd.set_option("display.max_columns", None)
 
-df = pd.read_csv("data/deadlock_dataset.csv")
+df = pd.read_csv(DATA_DIR / "deadlock_dataset.csv")
 
 print("DataFrame size:")
 print(df.shape)
